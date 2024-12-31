@@ -1,0 +1,16 @@
+version: '1'
+
+services:
+  templating:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: templating_current
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_PATH=/artifacts
+      - HF_TOKEN=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
+    volumes:
+      - ./artifacts:/app/artifacts
+    restart: unless-stopped
